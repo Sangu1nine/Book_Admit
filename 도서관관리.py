@@ -14,12 +14,12 @@ books = [{"title":"군주론" , "author":"니콜로 마키아벨리" , "quantity
          {"title":"총,균,쇠", "author":"재러드 다이아몬드", "quantity":4, "borrowed": 0},
          {"title":"아이로봇", "author": "아이작 아시모프", "quantity":3, "borrowed": 0},
          {"title":'거시경제학', "author": '그레고리 맨큐', "quantity":4, "borrowed": 1},
-         {"title":'점프투파이썬', "author": '박응용', "quantity":9, "borrowed": 5},
-         {"title":'깃허브입문', "author": '고경희', "quantity":5, "borrowed": 0},
+         {"title":'점프 투 파이썬', "author": '박응용', "quantity":9, "borrowed": 5},
+         {"title":'깃허브 입문', "author": '고경희', "quantity":5, "borrowed": 0},
          {"title":'사피엔스', "author": '유발 노아 하라리', "quantity":2, "borrowed": 0},
          {"title":'나의 라임 오렌지 나무', "author": '조제 마우루 지 바스콘셀루스', "quantity":1, "borrowed": 0},
          {"title":'해리포터', "author": '제이케이롤링', "quantity":4, "borrowed": 0},
-         {"title":'지킬박사와 하이드', "author": '로버트 루이스 스티븐슨', "quantity":2, "borrowed": 0}]
+         {"title":'지킬 박사와 하이드', "author": '로버트 루이스 스티븐슨', "quantity":2, "borrowed": 0}]
 
 while True:
     menu = input(display).strip()
@@ -49,7 +49,7 @@ while True:
         results = [book for book in books if keyword in book["title"] or keyword in book["author"]]
 
         if results:
-            print("검색 결과:")
+            print("검색 결과 (띄어쓰기 지켜주세요!!):")
             for book in results:
                 available = book["quantity"] - book["borrowed"]
                 print("┌--------------------------------┐")
@@ -90,7 +90,7 @@ while True:
 
     # 4. 도서 반납
     elif menu == "4":
-        title = input(" 반납할 책 제목 : ").strip()
+        title = input(" 반납할 책 제목 (띄어쓰기 지켜주세요!!): ").strip()
         for book in books:
             if book["title"] == title and book["borrowed"] > 0:
                 book["borrowed"] -= 1
