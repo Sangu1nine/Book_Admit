@@ -37,23 +37,23 @@ while True:
             else :
                 print("숫자만 입력해주세요!")  # 숫자가 아니면 다시 입력 요청
         found = False  # 우선적으로 책 검색
-        for book in books: # 도서관에 있는 도서명과 
+        for book in books: # 도서관에 이미 있던 도서명과 일치하면 found = True로 바꾸기
             if book["title"] == title:
                 book["quantity"] += quantity
                 print(f" '{title}'의 수량이 {quantity}권 추가되었습니다. (총 {book['quantity']}권)")
                 found = True
                 break
-        if not found:
+        if not found: # 전부 비교를 했는데 겹치는 것이 없으므로 found = False인 상태이므로 돌아가는 코드
             books.append({"title": title, "author": author, "quantity": quantity, "borrowed": 0})
             print(f" 새로운 도서 '{title}'이(가) 추가되었습니다. ({quantity}권)")
 
     # 2. 도서 검색
     elif menu == '2':
-        keyword = input(" 검색어 (제목 또는 저자): ").strip().replace(" ","").replace(",","")
+        keyword = input(" 검색어 (제목 또는 저자): ").strip().replace(" ","").replace(",","") # 띄어쓰기와 ","를 안쳐도 검색이 되도록
         results = [book for book in books if keyword in book["title"].replace(" ","").replace(",","") or keyword in book["author"].replace(" ","").replace(",","")]
 
         if results:
-            print("검색 결과 :")
+            print(" 검색 결과 :")
             for book in results:
                 available = book["quantity"] - book["borrowed"]
                 print("┌--------------------------------┐")
