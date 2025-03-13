@@ -49,7 +49,7 @@ while True:
         results = [book for book in books if keyword in book["title"] or keyword in book["author"]]
 
         if results:
-            print("검색 결과 (띄어쓰기 지켜주세요!!):")
+            print("검색 결과 :")
             for book in results:
                 available = book["quantity"] - book["borrowed"]
                 print("┌--------------------------------┐")
@@ -77,7 +77,7 @@ while True:
         title = input(" 대출할 책 제목 : ").strip()
 
         for book in books:
-            if book["title"] == title:
+            if book["title"].replace(" ","").replace(",","") == title.replace(" ","").replace(",",""):
                 available = book["quantity"] - book["borrowed"]
                 if available > 0:
                     book["borrowed"] += 1
@@ -90,9 +90,9 @@ while True:
 
     # 4. 도서 반납
     elif menu == "4":
-        title = input(" 반납할 책 제목 (띄어쓰기 지켜주세요!!): ").strip()
+        title = input(" 반납할 책 제목 : ").strip()
         for book in books:
-            if book["title"] == title and book["borrowed"] > 0:
+            if book["title"].replace(" ","").replace(",","") == title.replace(" ","").replace(",","") and book["borrowed"].replace(" ","").replace(",","") > 0:
                 book["borrowed"] -= 1
                 print(f" '{title}'을(를) 반납했습니다. 현재 남은 대출 가능 수량: {book['quantity'] - book['borrowed']}")
                 break
@@ -122,4 +122,4 @@ while True:
 
     # 7. 잘못된 명령어 처리
     else:
-        print(" 올바른 명령어를 입력하세요. (추가, 검색, 대출, 반납, 목록, 종료)")
+        print(" 메뉴를 1~6사이의 숫자로 입력해주세요. ")
