@@ -28,10 +28,14 @@ while True:
     if menu == '1':
         title = input(" 책 제목: ").strip(" ,.:").lower()
         author = input(" 저자: ").strip(" ,.:").lower()
-        quantity = int(input(" 수량을 숫자만 입력해주세요 : ").strip())
-        if quantity.isnumeric():  # 숫자인지 확인
-            break
-        print("숫자만 입력해주세요!")  # 숫자가 아니면 다시 입력 요청
+    
+        while True :
+            quantity_input = input(" 수량을 숫자로 입력해주세요: ").strip()
+            if quantity_input.isnumeric():  # 숫자인지 확인
+                quantity = int(quantity_input)  # 숫자로 변환
+                break
+            else :
+                print("숫자만 입력해주세요!")  # 숫자가 아니면 다시 입력 요청
         found = False  # 우선적으로 책 검색
         for book in books: # 도서관에 있는 도서명과 
             if book["title"] == title:
@@ -45,8 +49,8 @@ while True:
 
     # 2. 도서 검색
     elif menu == '2':
-        keyword = input(" 검색어 (제목 또는 저자): ").strip()
-        results = [book for book in books if keyword in book["title"] or keyword in book["author"]]
+        keyword = input(" 검색어 (제목 또는 저자): ").strip().replace(" ","").replace(",","")
+        results = [book for book in books if keyword in book["title"].replace(" ","").replace(",","") or keyword in book["author"].replace(" ","").replace(",","")]
 
         if results:
             print("검색 결과 :")
@@ -92,7 +96,7 @@ while True:
     elif menu == "4":
         title = input(" 반납할 책 제목 : ").strip()
         for book in books:
-            if book["title"].replace(" ","").replace(",","") == title.replace(" ","").replace(",","") and book["borrowed"].replace(" ","").replace(",","") > 0:
+            if book["title"].replace(" ","").replace(",","") == title.replace(" ","").replace(",","") and book["borrowed"] > 0:
                 book["borrowed"] -= 1
                 print(f" '{title}'을(를) 반납했습니다. 현재 남은 대출 가능 수량: {book['quantity'] - book['borrowed']}")
                 break
