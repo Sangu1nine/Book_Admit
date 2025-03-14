@@ -1,3 +1,4 @@
+import json
 def book_add(books) :
     title = input(" 책 제목: ").strip(" ,.:").lower()
     author = input(" 저자: ").strip(" ,.:").lower()
@@ -90,3 +91,11 @@ def book_list(books) :
     else:
         print(" 도서관에 책이 없습니다.")
     return books
+
+def book_save(books,filename) :
+    with open(filename, 'w',encoding="utf-8") as f :
+        json.dump(books, f, indent=4,ensure_ascii=False)
+    
+def book_load(filename) :
+    with open(filename, "r", encoding="utf-8") as f:
+        return json.load(f)

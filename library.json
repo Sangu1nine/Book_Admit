@@ -1,0 +1,68 @@
+[
+    {
+        "title": "���ַ�",
+        "author": "���ݷ� ��Ű�ƺ���",
+        "quantity": 3,
+        "borrowed": 0
+    },
+    {
+        "title": "��,��,��",
+        "author": "�緯�� ���̾Ƹ��",
+        "quantity": 4,
+        "borrowed": 0
+    },
+    {
+        "title": "���̷κ�",
+        "author": "������ �ƽø���",
+        "quantity": 3,
+        "borrowed": 0
+    },
+    {
+        "title": "�Žð�����",
+        "author": "�׷����� ��ť",
+        "quantity": 4,
+        "borrowed": 1
+    },
+    {
+        "title": "���� �� ���̽�",
+        "author": "������",
+        "quantity": 9,
+        "borrowed": 5
+    },
+    {
+        "title": "����� �Թ�",
+        "author": "������",
+        "quantity": 5,
+        "borrowed": 0
+    },
+    {
+        "title": "���ǿ���",
+        "author": "���� ��� �϶�",
+        "quantity": 2,
+        "borrowed": 0
+    },
+    {
+        "title": "���� ���� ������ ����",
+        "author": "���� ����� �� �ٽ��ܼ��罺",
+        "quantity": 1,
+        "borrowed": 0
+    },
+    {
+        "title": "�ظ�����",
+        "author": "�������̷Ѹ�",
+        "quantity": 4,
+        "borrowed": 0
+    },
+    {
+        "title": "��ų �ڻ�� ���̵�",
+        "author": "�ι�Ʈ ���̽� ��Ƽ�콼",
+        "quantity": 2,
+        "borrowed": 0
+    },
+    {
+        "title": "asd",
+        "author": "asd",
+        "quantity": 2,
+        "borrowed": 0
+    }
+]
